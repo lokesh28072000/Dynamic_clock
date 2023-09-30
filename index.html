@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Dynamic Time</title>
+        <style>
+            *{
+                background-color: aquamarine;
+                margin: 0;
+            }
+            h1{
+                text-align:  center;
+                color: rgb(2, 14, 6);
+                font-size: 50px;
+                margin-top: 20px;
+            }
+            p{
+                text-align: center;
+                font-size: 60px;
+                margin: 220px 0 0 0;
+                background-color: black;
+                color: #fff;
+            }
+        </style>
+        
+    </head>
+   
+    <body>
+        <p id="time">Time</p>
+        <h1 id="greetings">hello time</h1>
+    
+        <script>
+            function updateTime() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+    
+                // Format the time to have leading zeros if necessary
+                const formattedTime = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
+    
+                // Update the content of the 'time' element with the current time
+                document.getElementById('time').textContent = formattedTime;
+                
+            }
+    
+            // Call updateTime initially to set the time immediately
+            updateTime();
+    
+            // Update the time every second
+            setInterval(updateTime, 1000);
+
+          function greet(){
+                const wishes= new Date().getHours();
+                    if(wishes>17 && wishes<22)
+                    document.getElementById("greetings").innerHTML="Good Night " ;
+                    else if(wishes>13 && wishes<=17)
+                    document.getElementById("greetings").innerHTML="Good Evening";
+                    else
+                    document.getElementById("greetings").innerHTML="Good Morning";
+
+          }
+          greet();
+                
+    
+        </script>
+</body>
+</html>
